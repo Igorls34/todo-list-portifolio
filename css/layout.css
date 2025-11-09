@@ -1,0 +1,37 @@
+/* ==========================================
+   LAYOUT - Grid e Estrutura de Seções
+   ========================================== */
+
+section {
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Seções de conteúdo */
+.focus-section,
+.presentation-section,
+.experience-section,
+.values-section,
+.differential-section,
+.hard-skills,
+.soft-skills,
+.contact-methods,
+.social-links {
+    padding: 28px 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    flex: 1;
+}

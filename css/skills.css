@@ -1,0 +1,82 @@
+/* ==========================================
+   SKILLS - Hard Skills e Soft Skills
+   ========================================== */
+
+.skills-header-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+/* Grid de Hard Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+}
+
+.skill-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 8px;
+    transition: transform .18s ease;
+}
+
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+.skill-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+}
+
+/* Soft Skills - lista */
+.soft-skills ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.soft-skills ul li {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.soft-skills ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0D6EFD;
+    font-weight: bold;
+}

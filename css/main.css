@@ -1,0 +1,27 @@
+/* ==========================================
+   MAIN CSS - Importa todos os módulos
+   ========================================== */
+
+/* Base e Reset */
+@import url('base.css');
+
+/* Tipografia */
+@import url('typography.css');
+
+/* Componentes */
+@import url('header.css');
+@import url('navigation.css');
+@import url('layout.css');
+@import url('skills.css');
+@import url('tooltips.css');
+@import url('projects.css');
+@import url('contact.css');
+@import url('buttons.css');
+@import url('modal.css');
+@import url('forms.css');
+@import url('notifications.css');
+@import url('animations.css');
+@import url('footer.css');
+
+/* Responsividade */
+@import url('responsive.css');

@@ -1,0 +1,16 @@
+/* ==========================================
+   FOOTER - Rodapé
+   ========================================== */
+
+footer {
+    background: #2A2A2A;
+    color: #ffffff;
+    padding: 32px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}

@@ -1,0 +1,1157 @@
+/* Importação das fontes do Google Fonts - apenas 2 famílias */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /* Remove destaque azul em mobile */
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2A2A2A;
+    background: #f8f9fa;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Previne scroll horizontal */
+    transition: filter 0.3s ease;
+}
+
+/* Efeito blur quando modal está aberto */
+body.modal-open {
+    overflow: hidden;
+}
+
+body.modal-open > *:not(#formModal) {
+    filter: blur(3px);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    background: #ffffff;
+    padding: 40px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 20px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #0D6EFD;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0D6EFD;
+}
+
+/* Títulos de seção (Sobre Mim, Projetos, Contato) */
+section {
+    margin-bottom: 60px;
+    padding: 40px 0;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0D6EFD;
+    margin: 0 0 32px 0;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.value-proposition {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Parágrafos */
+p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #2A2A2A;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 14px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0D6EFD;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Grid / Layout simples */
+.row {
+    display: flex;
+    gap: 24px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1 1 300px;
+    min-width: 260px;
+}
+
+.skills-row .column {
+    min-width: 200px;
+}
+
+/* Blocos de conteúdo com padding generoso */
+.focus-section,
+.presentation-section,
+.experience-section,
+.values-section,
+.differential-section {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.hard-skills,
+.soft-skills {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+/* Imagens de cabeçalho das skills */
+.skills-header-image {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+/* Skills grid (SVG icons) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+}
+
+/* Tooltip para descrição das skills */
+.skill-tooltip {
+    position: fixed;
+    background: #ffffff;
+    color: #2A2A2A;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    width: 280px;
+    max-width: calc(100vw - 32px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    text-align: left;
+    border: 2px solid #0D6EFD;
+    --arrow-left: 50%;
+}
+
+/* Seta do tooltip quando posicionado acima do card */
+.skill-tooltip.tooltip-top::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--arrow-left);
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #0D6EFD;
+}
+
+/* Seta do tooltip quando posicionado abaixo do card */
+.skill-tooltip.tooltip-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: var(--arrow-left);
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-bottom-color: #0D6EFD;
+}
+
+.skill-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.skill-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 8px;
+    transition: transform .18s ease;
+}
+
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+.skill-item span {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+}
+
+/* Soft Skills - itens de lista */
+.soft-skills ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.soft-skills ul li {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.soft-skills ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0D6EFD;
+    font-weight: bold;
+}
+
+/* Projetos - Em Breve */
+.projects-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+.coming-soon-image {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 24px;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+.projects-placeholder h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0D6EFD;
+    margin-bottom: 16px;
+}
+
+.projects-placeholder p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Contact / Social - Centralizado */
+#contact .container {
+    text-align: center;
+}
+
+.contact-info {
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.contact-methods,
+.social-links {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.contact-item, .social-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 12px auto;
+    max-width: 350px;
+}
+
+.contact-item .icon, .social-item .icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: inline-block;
+    flex: 0 0 32px;
+}
+
+/* Form */
+.contact-form-section {
+    padding: 32px 24px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-top: 32px;
+}
+
+/* Botão CTA para abrir formulário */
+.contact-cta {
+    text-align: center;
+    padding: 40px 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    margin-top: 32px;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: #2A2A2A;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.open-form-btn {
+    background: #0D6EFD;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+.open-form-btn:hover {
+    background: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
+}
+
+/* Modal/Popup do Formulário */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-container {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: #e9ecef;
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    padding: 40px 32px;
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    color: #0D6EFD;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.modal-content .form-description {
+    text-align: center;
+    color: #555;
+    margin-bottom: 32px;
+    font-size: 1rem;
+}
+
+/* Formulário dentro do modal */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2A2A2A;
+    font-size: 0.95rem;
+}
+
+input[type="text"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    color: #2A2A2A;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0D6EFD;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.button.submit-btn {
+    background: #0D6EFD;
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s ease, transform 0.2s ease;
+    margin-top: 8px;
+}
+
+.button.submit-btn:hover {
+    background: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: #ffffff;
+    padding: 32px 0;
+    margin-top: 60px;
+    border-top: 1px solid #e6e6e6;
+    color: #555;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   RESPONSIVIDADE APRIMORADA
+   ======================================== */
+
+/* Tablets e dispositivos médios (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 32px 20px;
+    }
+    
+    section {
+        padding: 32px 0;
+        margin-bottom: 48px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 28px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 18px;
+    }
+    
+    /* Modal responsivo - Tablet */
+    .modal-container {
+        max-width: 90%;
+    }
+    
+    .modal-content {
+        padding: 32px 24px;
+    }
+}
+
+/* Tablets pequenos e smartphones grandes (720px) */
+@media (max-width: 720px) {
+    .container {
+        padding: 24px 16px;
+    }
+    
+    header {
+        padding: 24px 0;
+    }
+    
+    .hero-section {
+        padding: 16px 0;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+    
+    h2 {
+        font-size: 1rem;
+    }
+    
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+    }
+    
+    section {
+        padding: 24px 0;
+        margin-bottom: 40px;
+    }
+    
+    section h2 {
+        margin-bottom: 24px;
+        font-size: 1.3rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .profile-image {
+        width: 130px;
+        height: 130px;
+    }
+    
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+    
+    nav a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        display: inline-block;
+    }
+    
+    .row {
+        flex-direction: column;
+        margin: 24px 0;
+        gap: 16px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .skill-item {
+        padding: 12px;
+    }
+    
+    .skill-item img {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .skill-item span {
+        font-size: 0.85rem;
+    }
+    
+    /* Tooltip responsivo - Smartphone */
+    .skill-tooltip {
+        width: 260px;
+        max-width: calc(100vw - 24px);
+        font-size: 0.8rem;
+        padding: 10px 14px;
+    }
+    
+    .focus-section,
+    .presentation-section,
+    .experience-section,
+    .values-section,
+    .differential-section,
+    .hard-skills,
+    .soft-skills,
+    .contact-methods,
+    .social-links {
+        padding: 20px 16px;
+    }
+    
+    .projects-placeholder {
+        padding: 24px 16px;
+    }
+    
+    .projects-placeholder h3 {
+        font-size: 1.3rem;
+    }
+    
+    .projects-placeholder p {
+        font-size: 0.95rem;
+    }
+    
+    .skills-header-image,
+    .coming-soon-image {
+        max-width: 150px;
+    }
+    
+    /* Modal responsivo - Smartphone */
+    .modal-overlay {
+        padding: 12px;
+        align-items: flex-start;
+        padding-top: 40px;
+    }
+    
+    .modal-container {
+        max-width: 100%;
+        max-height: 85vh;
+        margin: 0;
+    }
+    
+    .modal-content {
+        padding: 24px 20px;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .modal-close {
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        right: 12px;
+    }
+    
+    .open-form-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    /* Formulário de contato */
+    .contact-form-section {
+        padding: 24px 16px;
+    }
+    
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+        padding: 10px 14px;
+        font-size: 16px; /* Previne zoom automático no iOS */
+    }
+    
+    .button.submit-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+    
+    /* Contato e redes sociais */
+    .contact-item,
+    .social-item {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+    
+    .contact-item .icon,
+    .social-item .icon {
+        width: 28px;
+        height: 28px;
+        flex: 0 0 28px;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 24px 0;
+        margin-top: 40px;
+    }
+    
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Smartphones (420px - pequenos) */
+@media (max-width: 420px) {
+    .container {
+        padding: 20px 12px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    h2 {
+        font-size: 0.95rem;
+    }
+    
+    section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .profile-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .value-proposition {
+        font-size: 0.9rem;
+    }
+    
+    nav ul {
+        gap: 8px;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+    }
+    
+    .skill-item {
+        padding: 10px;
+    }
+    
+    .skill-item img {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .skill-item span {
+        font-size: 0.8rem;
+    }
+    
+    /* Tooltip para telas muito pequenas */
+    .skill-tooltip {
+        width: 240px;
+        max-width: calc(100vw - 20px);
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+    
+    .skills-header-image,
+    .coming-soon-image {
+        max-width: 120px;
+    }
+    
+    .focus-section,
+    .presentation-section,
+    .experience-section,
+    .values-section,
+    .differential-section,
+    .hard-skills,
+    .soft-skills,
+    .contact-methods,
+    .social-links {
+        padding: 16px 12px;
+    }
+    
+    p, li {
+        font-size: 0.95rem;
+    }
+    
+    .soft-skills ul li {
+        font-size: 0.9rem;
+        padding-left: 18px;
+    }
+    
+    .projects-placeholder {
+        padding: 20px 12px;
+    }
+    
+    .projects-placeholder h3 {
+        font-size: 1.2rem;
+    }
+    
+    .projects-placeholder p {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal extra compacto */
+    .modal-overlay {
+        padding: 8px;
+        padding-top: 30px;
+    }
+    
+    .modal-content {
+        padding: 20px 16px;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-content .form-description {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+    }
+    
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+        padding: 10px 12px;
+        font-size: 16px; /* Previne zoom no iOS */
+    }
+    
+    .button.submit-btn {
+        width: 100%;
+        padding: 12px 24px;
+    }
+    
+    /* Formulário mais compacto */
+    .contact-form-section {
+        padding: 20px 12px;
+    }
+    
+    label {
+        font-size: 0.9rem;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 16px;
+    }
+}
+
+/* Dispositivos muito pequenos (< 360px) */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    section h2 {
+        font-size: 1.1rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    nav a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+}
+
+/* Landscape em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 16px 0;
+    }
+    
+    .hero-section {
+        padding: 10px 0;
+    }
+    
+    .profile-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 20px 0;
+        margin-bottom: 30px;
+    }
+}
+
+/* Ajustes para telas grandes (desktops) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1300px;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+/* pequenas melhorias visuais */
+a {
+    color: #0D6EFD;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0b5ed7;
+}
+
+/* ========================================
+   ANIMAÇÕES E INTERATIVIDADE (JavaScript)
+   ======================================== */
+
+/* Animação Fade In on Scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Link ativo na navegação */
+nav a.active {
+    color: #0D6EFD;
+    border-bottom: 2px solid #0D6EFD;
+    padding-bottom: 2px;
+}
+
+/* Melhora área de toque em mobile */
+@media (max-width: 720px) {
+    nav a,
+    .button,
+    .contact-item a,
+    .social-item a {
+        min-height: 44px; /* Tamanho mínimo recomendado para touch */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-item,
+    .social-item {
+        min-height: 48px;
+    }
+}
+nav a.active {
+    color: #0D6EFD;
+    border-bottom: 2px solid #0D6EFD;
+    padding-bottom: 2px;
+}
+
+/* Sistema de Notificações */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    font-weight: 500;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-width: 350px;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-success {
+    border-left: 4px solid #28a745;
+    color: #28a745;
+}
+
+.notification-error {
+    border-left: 4px solid #dc3545;
+    color: #dc3545;
+}
+
+.notification-info {
+    border-left: 4px solid #0D6EFD;
+    color: #0D6EFD;
+}
+
+/* Animação para skill items */
+.skill-item {
+    transition: all 0.3s ease;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsivo para notificações */
+@media (max-width: 720px) {
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: calc(100% - 20px);
+    }
+}

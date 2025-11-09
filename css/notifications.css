@@ -1,0 +1,39 @@
+/* ==========================================
+   NOTIFICATIONS - Sistema de Notificações
+   ========================================== */
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    font-weight: 500;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notification-success {
+    border-left: 4px solid #28a745;
+    color: #28a745;
+}
+
+.notification-error {
+    border-left: 4px solid #dc3545;
+    color: #dc3545;
+}
+
+.notification-info {
+    border-left: 4px solid #0D6EFD;
+    color: #0D6EFD;
+}

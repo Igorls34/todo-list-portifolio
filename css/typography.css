@@ -1,0 +1,53 @@
+/* ==========================================
+   TYPOGRAPHY - Títulos e Textos
+   ========================================== */
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #0D6EFD;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0D6EFD;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 48px;
+    color: #2A2A2A;
+}
+
+p {
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+a {
+    color: #0D6EFD;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
