@@ -248,10 +248,53 @@
         <section id="projects">
             <div class="container">
                 <h2>Projetos</h2>
-                <div class="projects-placeholder">
-                    <img src="assets/actions/em-breve.png" alt="Em breve" class="coming-soon-image">
-                    <h3>Em Breve</h3>
-                    <p>Estou trabalhando em projetos incríveis! Em breve você encontrará aqui meus trabalhos mais recentes, com detalhes sobre os desafios enfrentados, tecnologias utilizadas e o processo completo de desenvolvimento.</p>
+                
+                <div class="projects-grid">
+                    <!-- Card do Projeto To-Do List -->
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <h3 class="project-title">To-Do List — JavaScript Vanilla</h3>
+                            <p class="project-description">Um aplicativo de tarefas elegante e responsivo, criado usando apenas HTML, CSS e JavaScript moderno (ES6+). Inclui tema claro/escuro, animações, filtros, edição inline e persistência em LocalStorage.</p>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a href="https://to-do-list-igor.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Ver projeto To-Do List">Ver Projeto</a>
+                            <a href="https://github.com/igorlaurindo/todo-list-vanilla" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="Ver código fonte To-Do List">Código Fonte</a>
+                        </div>
+
+                        <ul class="project-features" aria-label="Funcionalidades do projeto To-Do List">
+                            <li>Tema claro e escuro com CSS Custom Properties</li>
+                            <li>CRUD completo com LocalStorage</li>
+                            <li>Filtros: Todos, Ativos e Concluídos</li>
+                            <li>Edição inline com duplo clique</li>
+                            <li>Animações suaves (fade e slide)</li>
+                            <li>Totalmente responsivo (mobile + desktop)</li>
+                        </ul>
+
+                        <div class="project-gallery" aria-label="Galeria de imagens do projeto To-Do List">
+                            <figure class="project-shot">
+                                <img src="assets/prints-projetos/todo_list/print_desktop_white_mode.jpg" alt="Prévia Desktop Light" loading="lazy">
+                            </figure>
+                            <figure class="project-shot">
+                                <img src="assets/prints-projetos/todo_list/print_mobile_white_mode.jpg" alt="Prévia Mobile Light" loading="lazy">
+                            </figure>
+                            <figure class="project-shot">
+                                <img src="assets/prints-projetos/todo_list/print1_desktop.jpg" alt="Prévia Desktop Dark" loading="lazy">
+                            </figure>
+                            <figure class="project-shot">
+                                <img src="assets/prints-projetos/todo_list/print2_mobile.jpg" alt="Prévia Mobile Dark" loading="lazy">
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder para próximos projetos -->
+                    <div class="project-card project-placeholder fade-in">
+                        <div class="placeholder-content">
+                            <img src="assets/actions/em-breve.png" alt="Em breve" class="coming-soon-image">
+                            <h3>Mais projetos em breve</h3>
+                            <p>Novos estudos e aplicações serão adicionados futuramente com foco em escalabilidade, acessibilidade e boas práticas.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

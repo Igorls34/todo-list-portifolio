@@ -138,18 +138,6 @@
         padding: 20px 16px;
     }
     
-    .projects-placeholder {
-        padding: 24px 16px;
-    }
-    
-    .projects-placeholder h3 {
-        font-size: 1.3rem;
-    }
-    
-    .projects-placeholder p {
-        font-size: 0.95rem;
-    }
-    
     .skills-header-image,
     .coming-soon-image {
         max-width: 150px;
@@ -335,14 +323,6 @@
     
     .projects-placeholder {
         padding: 20px 12px;
-    }
-    
-    .projects-placeholder h3 {
-        font-size: 1.2rem;
-    }
-    
-    .projects-placeholder p {
-        font-size: 0.9rem;
     }
     
     .modal-overlay {

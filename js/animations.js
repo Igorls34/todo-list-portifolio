@@ -16,8 +16,8 @@ export function initAnimations() {
         });
     }, observerOptions);
 
-    // Observa todas as seções
-    const elements = document.querySelectorAll('section, .focus-section, .presentation-section, .hard-skills, .soft-skills');
+    // Observa todas as seções e o card de projeto
+    const elements = document.querySelectorAll('section, .focus-section, .presentation-section, .hard-skills, .soft-skills, .project-card, .projects-placeholder');
     elements.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
