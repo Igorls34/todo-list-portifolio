@@ -1,0 +1,177 @@
+/* ===============================
+   Reset básico e variáveis
+   =============================== */
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+img, svg { max-width: 100%; height: auto; }
+ul { list-style: none; padding: 0; margin: 0; }
+button { cursor: pointer; }
+
+:root {
+  --bg: #0f172a;        /* dark default; será sobrescrito no light */
+  --text: #e2e8f0;
+  --accent: #7c3aed;
+  --card: #111827;
+  --border: #1f2937;
+  --muted: #94a3b8;
+  --focus: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
+  --shadow-soft: 0 6px 18px rgba(2, 6, 23, 0.25);
+}
+
+/* Tema claro */
+:root.light {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --accent: #7c3aed;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --muted: #475569;
+  --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+  --shadow-soft: 0 6px 18px rgba(2, 6, 23, 0.06);
+}
+
+body { 
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 10% -20%, color-mix(in oklab, var(--accent) 16%, transparent) 0%, transparent 60%), var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classe solicitada para tema escuro (escuro é o padrão nas variáveis) */
+.dark-mode { --theme-signal: 1; }
+
+/* ===============================
+   Layout
+   =============================== */
+.app-header, .app-footer {
+  max-width: 860px; margin: 0 auto; padding: 24px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.app-title { font-weight: 800; letter-spacing: -0.02em; font-size: clamp(24px, 2.8vw, 32px); }
+.app-footer { color: var(--muted); font-size: 14px; justify-content: center; }
+.app-footer a { color: var(--text); text-decoration: underline; opacity: .9; }
+
+.app-main { max-width: 860px; margin: 0 auto; padding: 0 16px 40px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+/* ===============================
+   Form: adicionar tarefas
+   =============================== */
+.add-task form { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+#taskInput {
+  padding: 14px 16px;
+  background: color-mix(in oklab, var(--card) 88%, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 16px;
+}
+#taskInput::placeholder { color: color-mix(in oklab, var(--muted) 75%, transparent); }
+#taskInput:focus { outline: var(--focus); border-color: color-mix(in oklab, var(--accent) 45%, var(--border)); }
+
+.btn {
+  padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border);
+  color: var(--text); background: color-mix(in oklab, var(--card) 85%, var(--bg));
+  display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow-soft);
+  transition: transform .08s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); opacity: .9; }
+.btn.primary { background: var(--accent); border-color: color-mix(in oklab, var(--accent) 60%, var(--border)); }
+.btn.ghost { background: transparent; }
+.icon-btn { 
+  border: 1px solid var(--border); border-radius: 10px; padding: 10px; 
+  background: color-mix(in oklab, var(--card) 85%, var(--bg)); box-shadow: var(--shadow-soft);
+}
+.icon-btn:hover { transform: translateY(-1px); }
+
+/* ===============================
+   Controles e filtros
+   =============================== */
+.list-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0 10px; }
+.filters { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.chip { 
+  border: 1px solid var(--border); background: transparent; color: var(--text); 
+  padding: 8px 12px; border-radius: 999px; font-size: 14px; opacity: .9;
+}
+.chip:hover { border-color: color-mix(in oklab, var(--accent) 45%, var(--border)); }
+.chip.is-active { background: color-mix(in oklab, var(--accent) 18%, transparent); border-color: color-mix(in oklab, var(--accent) 40%, var(--border)); }
+.counter { color: var(--muted); font-size: 14px; }
+
+/* ===============================
+   Lista de tarefas
+   =============================== */
+.task-list { display: grid; gap: 8px; margin-top: 8px; }
+.task {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
+  background: color-mix(in oklab, var(--card) 92%, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 12px; box-shadow: var(--shadow-soft);
+  animation: fade-in .25s ease-out both;
+}
+
+/* Checkbox estilizado */
+.check {
+  --size: 22px;
+  position: relative; width: var(--size); height: var(--size);
+}
+.check input { position: absolute; inset: 0; opacity: 0; }
+.check .box {
+  width: 100%; height: 100%; border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--muted) 40%, var(--border));
+  display: grid; place-items: center; transition: border-color .2s ease, background .2s ease;
+  background: transparent;
+}
+.check svg { width: 16px; height: 16px; opacity: 0; transform: scale(.6); transition: transform .2s ease, opacity .2s ease; }
+.check input:focus-visible + .box { outline: var(--focus); }
+.check input:checked + .box { background: color-mix(in oklab, var(--accent) 22%, transparent); border-color: var(--accent); }
+.check input:checked + .box svg { opacity: 1; transform: scale(1); }
+
+.task__text { 
+  color: var(--text); font-size: 16px; padding: 6px 8px; border-radius: 8px; 
+}
+.task--done .task__text { color: color-mix(in oklab, var(--muted) 55%, var(--text)); text-decoration: line-through; }
+.task__date { color: var(--muted); font-size: 12px; }
+
+.task__actions { display: inline-flex; gap: 8px; }
+.icon-btn.small { padding: 8px; border-radius: 8px; }
+
+/* Input inline de edição */
+.task-edit {
+  width: 100%; padding: 8px 10px; border-radius: 8px;
+  background: color-mix(in oklab, var(--card) 88%, var(--bg)); border: 1px solid var(--border);
+  color: var(--text); font-size: 16px;
+}
+.task-edit:focus { outline: var(--focus); }
+
+/* ===============================
+   Animações
+   =============================== */
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slide-out { to { opacity: 0; transform: translateY(6px); } }
+
+.task.exit { animation: slide-out .2s ease both; }
+
+/* Microinterações */
+.task:hover { border-color: color-mix(in oklab, var(--accent) 30%, var(--border)); }
+.task:active { transform: translateY(0); }
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .list-controls { flex-direction: column; align-items: stretch; }
+  .meta { display: flex; align-items: center; justify-content: space-between; }
+}

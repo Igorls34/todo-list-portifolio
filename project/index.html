@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To‑Do List — Vanilla JS</title>
+  <meta name="description" content="To-Do List moderna com tema claro/escuro, filtros e localStorage." />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <h1 class="app-title">To‑Do</h1>
+    <button id="themeToggle" class="icon-btn" aria-label="Alternar tema" title="Alternar tema">
+      <i data-feather="moon"></i>
+    </button>
+  </header>
+
+  <main class="app-main" role="main">
+    <section class="card">
+      <div class="add-task">
+        <form id="addForm" autocomplete="off" novalidate>
+          <input id="taskInput" name="task" type="text" placeholder="Adicionar uma nova tarefa..." aria-label="Adicionar uma nova tarefa" />
+          <button type="submit" class="btn primary" aria-label="Adicionar tarefa">
+            <i data-feather="plus"></i>
+            <span>Adicionar</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="list-controls">
+        <div class="filters" role="tablist" aria-label="Filtros de tarefas">
+          <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+          <button class="chip" data-filter="active" role="tab" aria-selected="false">Ativos</button>
+          <button class="chip" data-filter="completed" role="tab" aria-selected="false">Concluídos</button>
+        </div>
+        <div class="meta">
+          <span id="counter" class="counter" aria-live="polite">0 tarefas restantes</span>
+          <button id="clearCompleted" class="btn ghost" aria-label="Limpar concluídas">Limpar concluídas</button>
+        </div>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite" aria-label="Lista de tarefas"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <p>
+      Feito com JavaScript Vanilla • <a href="https://feathericons.com/" rel="noopener" target="_blank">Feather Icons</a>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
