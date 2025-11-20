@@ -1,0 +1,25 @@
+# Sistema operacional / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Dependências (se adicionadas futuramente)
+node_modules/
+
+# Build / cache
+.dist/
+build/
+coverage/
+.cache/
+
+# Misc
+*.zip
