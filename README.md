@@ -2,7 +2,7 @@
 
 Um To‑Do List moderno, responsivo e profissional usando apenas HTML, CSS e JavaScript (ES6+ modular). Inclui tema claro/escuro, filtros, edição inline, animações e persistência completa com localStorage.
 
-![Preview](./assets/preview.svg)
+![Preview](./project/assets/preview.svg)
 
 ## 🧭 Visão Geral
 - Interface limpa e responsiva
@@ -70,7 +70,7 @@ Depois acesse: http://localhost:5500
 - `utils.js`: utilitários (formatação, validação, animações)
 
 ## 📸 Print
-O arquivo `assets/preview.svg` ilustra a interface. Substitua por um print real depois, se desejar.
+O arquivo `project/assets/preview.svg` ilustra a interface. Substitua por um print real depois, se desejar.
 
 ## 📜 Licença
 Uso livre para portfólio e estudos.
